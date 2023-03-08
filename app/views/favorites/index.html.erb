@@ -1,0 +1,21 @@
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Image</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <body>
+    <% @favorites.each do |favorite| %>
+      <tr>
+        <td><%= favorite.post.content if favorite.post.content.present? %></td>
+        <div><td><%= image_tag favorite.post.image.url, size: '100x100' if favorite.post.image.present? %></td></div>
+        <td><%= favorite.post.user.name if favorite.post.content.present?%></td>
+      </tr>
+    <% end %>
+  </body>
+</table>
+
+<%= link_to 'Back', posts_path %>

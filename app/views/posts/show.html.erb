@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @post.content %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @post.image.url ,size:'500x400' if @post.image.present? && @post.image.url.present? %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @post.user.name%>
+</p>
+
+<% unless @post.user_id == current_user.id %>
+<%#= 自分の投稿にはお気に入りできないため　%>
+  <% if @favorite.present? %>
+    <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to 'お気に入りする', favorites_path(post_id: @post.id), method: :post, class: 'btn btn-primary' %>
+  <%#= （@post.idの値を、post_idパラメータとして送信し、その値を用いてFavoriteのデータをcreateしている）%>
+  <% end %>
+<% end %>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

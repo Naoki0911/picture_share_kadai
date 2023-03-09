@@ -16,7 +16,7 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.content %></td>
-        <td><%= post.image %></td>
+        <td><%= image_tag post.image.url ,size:'200x150' if post.image.present? && post.image.url.present? %></td>
         <td><%= post.user.name %></td>
         <td><%= link_to 'Show', post %></td>
         <% if post.user == current_user %>

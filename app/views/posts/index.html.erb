@@ -2,12 +2,12 @@
 
 <h1>Posts</h1>
 
-<table>
+<table class="table table-borderless">
   <thead>
     <tr>
-      <th>Content</th>
-      <th>Image</th>
-      <th>User</th>
+      <th scope="col">Content</th>
+      <th scope="col">Image</th>
+      <th scope="col">User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,10 +18,10 @@
         <td><%= post.content %></td>
         <td><%= image_tag post.image.url ,size:'200x150' if post.image.present? && post.image.url.present? %></td>
         <td><%= post.user.name %></td>
-        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Show', post, class: "btn btn-light" %></td>
         <% if post.user == current_user %>
-          <td><%= link_to 'Edit', edit_post_path(post) %></td>
-          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Edit', edit_post_path(post), class: "btn btn-light" %></td>
+          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-light" %></td>
         <% else %>
           <td></td>
           <td></td>
@@ -33,6 +33,6 @@
 
 <br>
 
-<%= link_to 'New Post', new_post_path %>
+<%= link_to 'New Post', new_post_path, class: "btn btn-light" %>
 
-<%= link_to 'Like', favorites_path %>
+<%= link_to 'Like', favorites_path, class: "btn btn-light" %>

@@ -7,8 +7,8 @@
 
   <p>本文:<%= @post.content %></p>
   <p>画像:<%= @post.image %></p>
-  <%= form.submit  "登録する" %>
+  <%= form.submit  "登録する", class: "btn btn-light" %>
 
-  <%= form.submit "戻る", name: 'back' ,class: "btn btn-primary" %>
+  <%= form.submit "戻る", name: 'back' , class: "btn btn-light" %>
 <% end %>
 

@@ -4,8 +4,8 @@
 
 <p>Image: <%= image_tag @user.image.url ,size:'300x200' if @user.image.present? && @user.image.url.present? %></p>
 
-<%= link_to "index", posts_path %>
+<%= link_to "index", posts_path, class: "btn btn-light" %>
 
 <% if @user.id == current_user.id %>
-  <%= link_to "edit", edit_user_path(@user.id) %>
+  <%= link_to "edit", edit_user_path(@user.id), class: "btn btn-light" %>
 <% end %>

@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   
   def new
     @user = User.new
@@ -20,6 +19,9 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    unless current_user.id == @user.id
+      redirect_to posts_path
+    end
   end
 
   def update
@@ -31,8 +33,6 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-
-
 
   private
 
